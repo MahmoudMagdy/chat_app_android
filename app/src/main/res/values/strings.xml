@@ -1,0 +1,181 @@
+<resources>
+    <string name="app_name" translatable="false">ChatApp</string>
+    <string name="app_logo_desc">Chat App Logo</string>
+    <!--GeneralBtn-->
+    <string name="gen_back_btn_desc">Go to previous page</string>
+    <!--GeneralPassword-->
+    <string name="gen_password_toggle_visible_desc">Make password visible</string>
+    <string name="gen_password_toggle_invisible_desc">Make password invisible</string>
+    <!--GeneralMessages-->
+    <string name="gen_error_msg_title">Error Occurred</string>
+    <string name="gen_error_msg_content">Something went wrong, please try again…</string>
+    <string name="gen_network_error_title">Network Error</string>
+    <string name="gen_network_error_content">There is no network connection, please enable Mobile Data or WIFI and try again.</string>
+    <string name="gen_acc_disabled_error_title">Account Disabled</string>
+    <string name="gen_acc_disabled_error_content">The account you are trying to sign in to has been disabled for some policies.</string>
+    <string name="gen_warning_title">Warning</string>
+    <string name="gen_insufficient_permissions_title">Insufficient Permissions</string>
+    <string name="gen_img_size_exceeded_limit_title">Image Maximum Size</string>
+    <string name="gen_img_size_exceeded_limit_msg">The image size exceeded the 2 megabyte limit.</string>
+    <string name="gen_incomplete_data_title">Incomplete Data</string>
+    <string name="gen_camera_rejected_msg">You need to give permission to the app to access the camera</string>
+    <string name="gen_camera_do_not_show_again_msg">You need to go to mobile Settings and give the app permission to
+        access the camera
+    </string>
+    <string name="gen_video_gallery_rejected_msg">You need to give permission to the app to access video gallery</string>
+    <string name="gen_video_gallery_do_not_show_again_msg">You need to go to mobile Settings and give the app permission to
+        access video gallery</string>
+    <string name="gen_gallery_rejected_msg">You need to give permission to the app to access the gallery</string>
+    <string name="gen_gallery_do_not_show_again_msg">You need to go to mobile Settings and give the app permission to
+        access the gallery
+    </string>
+    <string name="gen_read_write_rejected">You need to give permission to the app to access the storage</string>
+    <string name="gen_read_write_do_not_show_again">You need to go to mobile Settings and give the app permission to access
+        the storage
+    </string>
+    <string name="gen_camera_not_saved_yet_title">Image in processing</string>
+    <string name="gen_camera_not_saved_yet_msg">The camera image hasn\'t been saved yet, please wait a bit.</string>
+    <string name="gen_gallery_title">Gallery</string>
+    <string name="gen_request_permission_btn">Request permission</string>
+    <string name="gen_open_settings_btn">Open Settings</string>
+    <!--ImageSelectorDialog-->
+    <string name="img_selector_profile_title">Profile Image</string>
+    <string name="img_selector_camera_desc">Select image from camera</string>
+    <string name="img_selector_gallery_desc">Select image from gallery</string>
+    <string name="img_selector_remove_desc">Remove selected image</string>
+    <string name="img_selector_camera_title">Camera</string>
+    <string name="img_selector_gallery_title">Gallery</string>
+    <string name="img_selector_remove_title">Remove</string>
+    <string name="img_selector_cancel_title">Cancel</string>
+    <!--MessageDialog-->
+    <string name="message_dialog_ok_btn">OK</string>
+    <!--ProgressDialog-->
+    <string name="progress_dialog_cancel_title">Cancel</string>
+    <!--QuestionDialog-->
+    <string name="que_dialog_answer_yes">Yes</string>
+    <string name="que_dialog_answer_no">No</string>
+    <!--MediaGalleryActivity-->
+    <string name="media_gallery_photos_title">Photos</string>
+    <string name="media_gallery_videos_title">Videos</string>
+    <!--FoldersListScreen-->
+    <string name="folder_list_folders_empty_title">Empty!</string>
+    <string name="folder_list_folders_empty_text">Your image gallery is empty.</string>
+    <string name="folder_list_folder_thumbnail_desc">Image folder thumbnail</string>
+    <string name="folder_list_folder_size_desc">Media</string>
+    <!--MediaListScreen-->
+    <string name="images_list_folder_empty_text">This folder is empty.</string>
+    <string name="images_list_image_thumbnail">Image thumbnail</string>
+    <!--ImageCropperScreen-->
+    <string name="image_cropper_done_title">Done</string>
+    <string name="image_cropper_cancel_title">Cancel</string>
+    <string name="image_cropper_rotate_img_desc">Rotate selected image</string>
+    <!--LoginScreen-->
+    <string name="login_scr_sign_up_title">Sign Up</string>
+    <string name="login_scr_sign_in_title">Sign In</string>
+    <string name="login_scr_sign_up_desc_title">Create your Account</string>
+    <string name="login_scr_sign_in_desc_title">Login to your Account</string>
+    <string name="login_scr_sign_up_desc">Don\'t Have an Account?</string>
+    <string name="login_scr_sign_in_desc">Already Have an Account?</string>
+    <string name="login_scr_in_methods_title">-Or Sign In with-</string>
+    <string name="login_scr_up_methods_title">-Or Sign Up with-</string>
+    <string name="login_scr_mobile_number_title">Mobile Number</string>
+    <string name="login_scr_forgotten_pass_btn_title">Forgotten password?</string>
+    <string name="login_scr_acc_email_hint">Email address</string>
+    <string name="login_scr_acc_username_hint">Username</string>
+    <string name="login_scr_acc_password_hint">Password</string>
+    <string name="login_scr_con_acc_password_hint">Confirm Password</string>
+    <string name="login_scr_invalid_email_msg">Enter a valid email address.</string>
+    <string name="login_scr_unique_email_msg">Email address already in use.</string>
+    <string name="login_scr_invalid_username_msg">Enter a valid username.</string>
+    <string name="login_scr_unique_username_msg">Username already in use.</string>
+    <string name="login_scr_incorrect_password_msg">The password that you\'ve entered is incorrect.</string>
+    <string name="login_scr_empty_password_msg">password mustn\'t be empty.</string>
+    <string name="login_scr_weak_password_msg">Password must be at least 6 characters.</string>
+    <string name="login_scr_confirm_password_msg">Passwords do not match.</string>
+    <string name="login_scr_google_dialog_title">Preparing Google Account Data</string>
+    <string name="login_scr_facebook_dialog_title">Preparing Facebook Account Data</string>
+    <string name="login_scr_twitter_dialog_title">Preparing Twitter Account Data</string>
+    <string name="login_scr_email_dialog_title">Preparing Account Data</string>
+    <string name="login_scr_no_user_content">The email address you entered isn\'t connected to an account.</string>
+    <string name="login_scr_acc_error_title">Account Error</string>
+    <string name="login_scr_invalid_acc_content">You are trying to sign in with in invalid account, please login to another valid one and try to sign in again.</string>
+    <string name="login_scr_time_out_error_content">Timed out while awaiting the result, please try again.</string>
+    <string name="login_scr_fc_logo_desc">Flamescloud logo</string>
+    <string name="login_scr_loading_data">Loading Data</string>
+    <!--ResetPasswordFragment-->
+    <string name="reset_password_forget_title">Forget Your Password?</string>
+    <string name="reset_password_forget_desc">To reset your password, enter your email address, press the reset password button and check your mail to follow the instructions.</string>
+    <string name="reset_password_rest_btn">Reset Password</string>
+    <string name="reset_password_time_limit_msg_title">Check your Email</string>
+    <string name="reset_password_time_limit_msg_content">Password reset email sent, check your inbox If you don\'t find the email in your inbox, please check your spam folder or junk mail folder.</string>
+    <string name="reset_password_success_msg_title">Submitted Successfully</string>
+    <string name="reset_password_success_msg_content">The password reset request has been sent successfully. Please check your email to reset your password.</string>
+    <string name="reset_password_disabled_error_content">The account you are trying to reset its password has been disabled for some policies.</string>
+    <!--UserInfoFragment-->
+    <string name="user_info_first_name">First Name</string>
+    <string name="user_info_last_name">Last Name</string>
+    <string name="user_info_gender_female_title">Female</string>
+    <string name="user_info_gender_male_title">Male</string>
+    <string name="user_info_login_btn_text">Login</string>
+    <string name="user_info_month_title">Month</string>
+    <string name="user_info_year_title">Year</string>
+    <string name="user_info_day_title">Day</string>
+    <string name="user_info_gender_title">Gender</string>
+    <string name="user_info_agreement_base_content">By clicking Start, you agree to our</string>
+    <string name="user_info_agreement_terms_content">Terms</string>
+    <string name="user_info_agreement_and_content">and</string>
+    <string name="user_info_agreement_privacy_content">Privacy Policy</string>
+    <string name="user_info_agreement_dot_content">.</string>
+    <string name="user_info_choose_photo_title">Choose Photo</string>
+    <string name="user_info_choose_img_desc">Change Profile Photo</string>
+    <string name="user_info_profile_img_desc">Current profile picture</string>
+    <string name="user_info_complete_login_que">Are you sure you do not want to complete the sign-in process?</string>
+    <string name="user_info_provide_dob_content">You need to provide your date of birth. you can change who see this later.</string>
+    <string name="user_info_f_name_empty">You have to enter your first name..!</string>
+    <string name="user_info_l_name_empty">You have to enter your last name..!</string>
+    <string name="user_info_progress_title">Preparing User Data</string>
+    <!--TermsOfServiceActivity-->
+    <string name="terms_of_service_title">Terms of Service</string>
+    <string name="terms_introduction_content" translatable="false">Thank you for using the ChatApp platform and the products, services and features we make available to you as part of the platform (collectively, the “Service”).</string>
+    <!--PrivacyPolicyActivity-->
+    <string name="privacy_policy_title">Privacy Policy</string>
+    <string name="privacy_policy_content" translatable="false">
+        This Privacy Policy is meant to help you understand what information we collect, why we collect it, and how you can update, manage and delete your information.
+    </string>
+    <string name="privacy_policy_showcase_desc" translatable="false">Privacy Policy showcase image</string>
+    <string name="privacy_policy_information_title" translatable="false">Information Collection and Use</string>
+    <string name="privacy_policy_information_content" translatable="false">For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information, including but not limited to First Name, Last Name, Date of Birth, Gender,Country, Language, Login Method (Cell Number, or Email). When you use our services, you’re trusting us with your information.We understand this is a big responsibility and work hard to protect your information and put you in control.
+        \nThe app does use third party services that may collect information used to identify you.
+        \nLink to privacy policy of third party service providers used by the app:</string>
+    <string name="privacy_policy_information_play_link" translatable="false">- Google Play Services</string>
+    <string name="privacy_policy_information_ad_mob_link" translatable="false">- AdMob</string>
+    <string name="privacy_policy_information_firebase_link" translatable="false">- Firebase Analytics</string>
+    <!--ChatFeature-->
+    <string name="chat_feature_pro_pic_desc">Profile picture of %1$s</string>
+    <!--ChatListScreen-->
+    <string name="chat_list_title">Conversations</string>
+    <string name="chat_list_empty_content">Start your first conversation…</string>
+    <string name="chat_list_item_new_msg">new</string>
+    <string name="chat_list_user_online">Online</string>
+    <string name="chat_list_users_search_hint">Search profile</string>
+    <string name="chat_list_logout_btn_desc">Logout</string>
+    <!--SearchProfilesScreen-->
+    <string name="search_profiles_title">Search Results</string>
+    <string name="search_profiles_empty_content">We didn\'t find any results, Make sure that everything is spelt correctly or try different keywords.</string>
+    <string name="search_profiles_default_user_desc">Describe yourself in a little brief.</string>
+    <!--MessageListScreen-->
+    <string name="msg_list_empty_content">Send your first message…!</string>
+    <string name="msg_list_editor_hint">Type a message…</string>
+    <string name="msg_list_send_record_btn_desc">Send text or voice message</string>
+
+    <string name="chat_list_move_to_first_desc">Go to the beginning of your chats list</string>
+    <string name="user_state_desc">User Connection State</string>
+    <string name="conversations_image_message_content">Photo</string>
+    <string name="conversations_last_message_img_desc">Descriptive image of last message</string>
+    <!--ChatRoomActivity-->
+    <string name="chat_room_user_offline">Offline</string>
+    <string name="chat_room_user_last_seen">Last Seen</string>
+    <string name="chat_room_cur_user_img_desc">Chat session user image</string>
+
+
+</resources>

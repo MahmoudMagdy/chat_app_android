@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_logo_desc">شعار تطبيق الدردشة</string>
+    <!--GeneralBtn-->
+    <string name="gen_back_btn_desc">الانتقال إلى الصفحة السابقة</string>
+    <!--GeneralPasswordInput-->
+    <string name="gen_password_toggle_visible_desc">اجعل كلمة المرور مرئية</string>
+    <string name="gen_password_toggle_invisible_desc">اجعل كلمة المرور غير مرئية</string>
+    <!--GeneralMessages-->
+    <string name="gen_error_msg_title">حدث خطأ</string>
+    <string name="gen_error_msg_content">حدث خطأ ما. أعد المحاولة من فضلك…</string>
+    <string name="gen_network_error_title">خطأ في الشبكة</string>
+    <string name="gen_network_error_content">لا يوجد اتصال بالشبكة ، يرجى تمكين بيانات الهاتف المحمول أو الواي فاي وإعادة المحاولة.</string>
+    <string name="gen_acc_disabled_error_title">الحساب معطل</string>
+    <string name="gen_acc_disabled_error_content">تم تعطيل الحساب الذي تحاول تسجيل الدخول إليه لمخالفة بعض السياسات.</string>
+    <string name="gen_warning_title">تحذير</string>
+    <string name="gen_insufficient_permissions_title">أذونات غير كافية</string>
+    <string name="gen_img_size_exceeded_limit_title">الحجم الأقصى للصورة</string>
+    <string name="gen_img_size_exceeded_limit_msg">حجم الصورة تجاوز الحد الأقصى 2 ميجا بايت.</string>
+    <string name="gen_incomplete_data_title">بيانات غير مكتملة</string>
+    <string name="gen_camera_rejected_msg">تحتاج إلى منح إذن للتطبيق للوصول إلى الكاميرا</string>
+    <string name="gen_camera_do_not_show_again_msg">يجب الانتقال إلى إعدادات الجوّال وإعطاء التطبيق إذنًا للوصول إلى الكاميرا</string>
+    <string name="gen_video_gallery_rejected_msg">تحتاج إلى منح إذن للتطبيق للوصول إلى معرض الفيديو</string>
+    <string name="gen_video_gallery_do_not_show_again_msg">يجب الانتقال إلى إعدادات الجوّال وإعطاء إذن للتطبيق بالوصول إلى معرض الفيديو</string>
+    <string name="gen_gallery_rejected_msg">تحتاج إلى منح إذن للتطبيق للوصول إلى معرض الصور</string>
+    <string name="gen_gallery_do_not_show_again_msg">يجب الانتقال إلى إعدادات الجوّال وإعطاء إذن للتطبيق بالوصول إلى معرض الصور</string>
+    <string name="gen_read_write_rejected">تحتاج إلى منح إذن للتطبيق للوصول إلى التخزين</string>
+    <string name="gen_read_write_do_not_show_again">يجب الانتقال إلى إعدادات الجوّال وإعطاء إذن للتطبيق بالوصول إلى التخزين</string>
+    <string name="gen_camera_not_saved_yet_title">الصورة قيد المعالجة</string>
+    <string name="gen_camera_not_saved_yet_msg">لم يتم حفظ صورة الكاميرا بعد ، يرجى الانتظار قليلاً.</string>
+    <string name="gen_gallery_title">معرض</string>
+    <string name="gen_request_permission_btn">طلب الإذن</string>
+    <string name="gen_open_settings_btn">أفتح الإعدادات</string>
+    <!--ImageSelectorDialog-->
+    <string name="img_selector_profile_title">الصورة الشخصية</string>
+    <string name="img_selector_camera_desc">التقط صورة بواسطة الكاميرا</string>
+    <string name="img_selector_gallery_desc">اختار صورة من معرض الصور</string>
+    <string name="img_selector_remove_desc">حذف الصورة الحالية</string>
+    <string name="img_selector_camera_title">الكاميرا</string>
+    <string name="img_selector_gallery_title">المعرض</string>
+    <string name="img_selector_remove_title">إزالة</string>
+    <string name="img_selector_cancel_title">إلغاء</string>
+    <!--MessageDialog-->
+    <string name="message_dialog_ok_btn">موافق</string>
+    <!--ProgressDialog-->
+    <string name="progress_dialog_cancel_title">إلغاء</string>
+    <!--QuestionDialog-->
+    <string name="que_dialog_answer_yes">نعم</string>
+    <string name="que_dialog_answer_no">لا</string>
+    <!--MediaGalleryActivity-->
+    <string name="media_gallery_photos_title">الصور</string>
+    <string name="media_gallery_videos_title">فيديوهات</string>
+    <!--FoldersListScreen-->
+    <string name="folder_list_folders_empty_title">فارغ!</string>
+    <string name="folder_list_folders_empty_text">معرض الصور الخاص بك فارغ.</string>
+    <string name="folder_list_folder_thumbnail_desc">صورة مصغرة لمجلد الصور</string>
+    <string name="folder_list_folder_size_desc">وسائط</string>
+    <!--MediaListScreen-->
+    <string name="images_list_folder_empty_text">هذا المجلد فارغ.</string>
+    <string name="images_list_image_thumbnail">صورة مصغرة</string>
+    <!--ImageCropperScreen-->
+    <string name="image_cropper_done_title">تم</string>
+    <string name="image_cropper_cancel_title">إلغاء</string>
+    <string name="image_cropper_rotate_img_desc">قم بتدوير الصورة المختارة</string>
+    <!--LoginScreen-->
+    <string name="login_scr_sign_up_title">إنشاء حساب</string>
+    <string name="login_scr_sign_in_title">تسجيل الدخول</string>
+    <string name="login_scr_sign_up_desc_title">إنشاء حسابك</string>
+    <string name="login_scr_sign_in_desc_title">تسجيل الدخول إلى حسابك</string>
+    <string name="login_scr_sign_up_desc">ليس لديك حساب؟</string>
+    <string name="login_scr_sign_in_desc">هل لديك حساب؟</string>
+    <string name="login_scr_in_methods_title">-أو تسجيل الدخول باستخدام-</string>
+    <string name="login_scr_up_methods_title">-أو إنشاء حساب باستخدام-</string>
+    <string name="login_scr_mobile_number_title">رقم الهاتف</string>
+    <string name="login_scr_forgotten_pass_btn_title">هل نسيت كلمة السر؟</string>
+    <string name="login_scr_acc_email_hint">عنوان البريد الإلكتروني</string>
+    <string name="login_scr_acc_username_hint">اسم المستخدم</string>
+    <string name="login_scr_acc_password_hint">كلمة المرور</string>
+    <string name="login_scr_con_acc_password_hint">تأكيد كلمة المرور</string>
+    <string name="login_scr_invalid_email_msg">أدخل عنوان بريد إلكتروني صالحاً.</string>
+    <string name="login_scr_unique_email_msg">البريد الالكتروني تم استعماله مسبقا.</string>
+    <string name="login_scr_invalid_username_msg">أدخل اسم مستخدم صالح.</string>
+    <string name="login_scr_unique_username_msg">اسم المستخدم قيد الاستخدام بالفعل.</string>
+    <string name="login_scr_incorrect_password_msg">كلمة السر التي أدخلتها غير صحيحة.</string>
+    <string name="login_scr_empty_password_msg">يجب ألا تكون كلمة المرور فارغة.</string>
+    <string name="login_scr_weak_password_msg">يجب أن تكون كلمة المرور 6 أحرف على الأقل.</string>
+    <string name="login_scr_confirm_password_msg">كلمات المرور غير مطابقة.</string>
+    <string name="login_scr_google_dialog_title">يتم تجهيز بيانات حساب جوجل</string>
+    <string name="login_scr_facebook_dialog_title">يتم تجهيز بيانات حساب فيسبوك</string>
+    <string name="login_scr_twitter_dialog_title">يتم تجهيز بيانات حساب تويتر</string>
+    <string name="login_scr_email_dialog_title">تجهيز بيانات الحساب</string>
+    <string name="login_scr_no_user_content">البريد الإلكتروني الذي أدخلته غير مرتبط بحساب.</string>
+    <string name="login_scr_acc_error_title">خطأ في الحساب</string>
+    <string name="login_scr_invalid_acc_content">أنت تحاول تسجيل الدخول باستخدام حساب غير صالح ، يرجى تسجيل الدخول إلى حساب آخر صالح ومحاولة تسجيل الدخول مرة أخرى.</string>
+    <string name="login_scr_time_out_error_content">انتهت المهلة أثناء انتظار النتيجة ، يرجى المحاولة مرة أخرى.</string>
+    <string name="login_scr_fc_logo_desc">شعار Flamescloud</string>
+    <string name="login_scr_loading_data">جار تحميل البيانات…</string>
+    <!--ResetPasswordScreen-->
+    <string name="reset_password_forget_title">نسيت كلمة المرور؟</string>
+    <string name="reset_password_forget_desc">لإعادة تعيين كلمة المرور الخاصة بك ، أدخل عنوان بريدك الإلكتروني ، واضغط على زر إعادة تعيين كلمة المرور وتحقق من بريدك لاتباع التعليمات.</string>
+    <string name="reset_password_rest_btn">إعادة تعيين كلمة المرور</string>
+    <string name="reset_password_time_limit_msg_title">تحقق من بريدك الالكتروني</string>
+    <string name="reset_password_time_limit_msg_content">تم إرسال بريد إلكتروني لإعادة تعيين كلمة المرور ، تحقق من صندوق الوارد الخاص بك إذا لم تعثر على البريد الإلكتروني في صندوق الوارد الخاص بك ، فيرجى التحقق من مجلد البريد العشوائي أو مجلد البريد غير الهام.</string>
+    <string name="reset_password_success_msg_title">تم الإرسال بنجاح</string>
+    <string name="reset_password_success_msg_content">تم إرسال طلب إعادة تعيين كلمة المرور بنجاح. يرجى التحقق من بريدك الإلكتروني لإعادة تعيين كلمة المرور الخاصة بك.</string>
+    <string name="reset_password_disabled_error_content">تم تعطيل الحساب الذي تحاول إعادة تعيين كلمة المرور الخاصة به لبعض السياسات.</string>
+    <!--UserInfoScreen-->
+    <string name="user_info_first_name">الاسم الاول</string>
+    <string name="user_info_last_name">اسم العائلة</string>
+    <string name="user_info_gender_female_title">أنثى</string>
+    <string name="user_info_gender_male_title">ذكر</string>
+    <string name="user_info_login_btn_text">تسجيل الدخول</string>
+    <string name="user_info_month_title">شهر</string>
+    <string name="user_info_year_title">عام</string>
+    <string name="user_info_day_title">يوم</string>
+    <string name="user_info_gender_title">النوع</string>
+    <string name="user_info_agreement_base_content">بالنقر على ابدأ ، فإنك توافق على</string>
+    <string name="user_info_agreement_terms_content">شروط</string>
+    <string name="user_info_agreement_and_content">و</string>
+    <string name="user_info_agreement_privacy_content">سياسة الخصوصية</string>
+    <string name="user_info_agreement_dot_content">الخاصين بنا.</string>
+    <string name="user_info_choose_photo_title">اختر صورة</string>
+    <string name="user_info_choose_img_desc">تغيير صورة الملف الشخصي</string>
+    <string name="user_info_profile_img_desc">صورة الملف الشخصي الحالية</string>
+    <string name="user_info_complete_login_que">هل انت متأكد من أنك لا تريد اكمال عملية تسجيل الدخول؟</string>
+    <string name="user_info_provide_dob_content">تحتاج إلى تقديم تاريخ ميلادك. يمكنك تغيير من يرى ذلك لاحقًا.</string>
+    <string name="user_info_f_name_empty">يجب عليك إدخال اسمك الأول ..!</string>
+    <string name="user_info_l_name_empty">يجب عليك إدخال اسم عائلتك ..!</string>
+    <string name="user_info_progress_title">يتم تجهيز بيانات المستخدم</string>
+    <!--TermsOfServiceActivity-->
+    <string name="terms_of_service_title">شروط الخدمة</string>
+    <!--PrivacyPolicyActivity-->
+    <string name="privacy_policy_title">سياسة الخصوصية</string>
+    <!--ChatFeature-->
+    <string name="chat_feature_pro_pic_desc">صورة %1$s الشخصية</string>
+    <!--ChatListScreen-->
+    <string name="chat_list_title">المحادثات</string>
+    <string name="chat_list_empty_content">ابدأ محادثتك الأولى…</string>
+    <string name="chat_list_item_new_msg">جديد</string>
+    <string name="chat_list_user_online">متصل</string>
+    <string name="chat_list_users_search_hint">البحث عن الملف الشخصي</string>
+    <string name="chat_list_logout_btn_desc">تسجيل الخروج</string>
+    <!--SearchProfilesScreen-->
+    <string name="search_profiles_title">نتائج البحث</string>
+    <string name="search_profiles_empty_content">لم نعثر على أي نتائج, تأكد من كتابة كل شيء بشكل صحيح أو جرب كلمات رئيسية مختلفة.</string>
+    <string name="search_profiles_default_user_desc">صِف نفسك بإيجاز بسيط.</string>
+    <!--MessageListScreen-->
+    <string name="msg_list_empty_content">أرسل رسالتك الأولى…!</string>
+    <string name="msg_list_editor_hint">اكتب رسالة…</string>
+    <string name="msg_list_send_record_btn_desc">إرسال رسالة نصية أو صوتية</string>
+
+    <string name="chat_list_move_to_first_desc">انتقل إلى بداية قائمة الدردشات</string>
+    <string name="user_state_desc">حالة أتصال المستخدم</string>
+    <string name="conversations_image_message_content">صورة</string>
+    <string name="conversations_last_message_img_desc">الصورة الوصفية للرسالة الأخيرة</string>
+    <!--ChatRoomActivity-->
+    <string name="chat_room_user_offline">غير متصل</string>
+    <string name="chat_room_user_last_seen">اخر ظهور</string>
+    <string name="chat_room_cur_user_img_desc">صورة مستخدم جلسة الدردشة</string>
+
+</resources>

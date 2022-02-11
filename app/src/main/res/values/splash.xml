@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.ChatApp.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_screen_bg</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_chat_app_logo_splash</item>
+        <item name="postSplashScreenTheme">@style/Theme.ChatApp</item>
+    </style>
+</resources>
