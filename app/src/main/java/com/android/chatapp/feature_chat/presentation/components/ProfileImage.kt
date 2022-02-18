@@ -33,7 +33,7 @@ fun ProfileImage(
             .background(Color.LightGray)
             .apply { if (onClick != null) clickable(onClick = onClick) },
         painter = rememberImagePainter(
-            data = profile?.image?.media,
+            data = profile?.image?.media ?: R.drawable.def_profile_pic,
             builder = { crossfade(true) }
         ),
         contentScale = ContentScale.Crop,

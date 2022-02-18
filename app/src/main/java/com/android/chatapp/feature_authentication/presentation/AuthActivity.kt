@@ -49,7 +49,9 @@ class AuthActivity : ComponentActivity() {
                     viewModel.removeSplash()
                     AuthApp(launchActivity = { launch -> this@AuthActivity.launch() })
                 }
-                AuthState.LOGGED_IN -> chatActivity
+                AuthState.LOGGED_IN ->{
+                    chatActivity
+                }
             }
         }
     }

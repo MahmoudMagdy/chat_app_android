@@ -148,6 +148,24 @@
     <string name="msg_list_empty_content">أرسل رسالتك الأولى…!</string>
     <string name="msg_list_editor_hint">اكتب رسالة…</string>
     <string name="msg_list_send_record_btn_desc">إرسال رسالة نصية أو صوتية</string>
+    <!--Notification-->
+    <string name="default_channel_name">القناة الإفتراضية</string>
+    <string name="default_channel_description">المسؤول عن إظهار اشعارات المستخدم.</string>
+    <string name="foreground_channel_name">قناة المقدمة</string>
+    <string name="foreground_channel_description">يجلب التطبيق إشعارات جديدة.</string>
+    <string name="foreground_notification_title">الاستماع إلى الإشعارات</string>
+    <string name="foreground_notification_content">لا تفوت أي إشعار.</string>
+    <string name="foreground_notification_cancel_title">إلغاء</string>
+
+
+
+
+
+
+
+
+
+
 
     <string name="chat_list_move_to_first_desc">انتقل إلى بداية قائمة الدردشات</string>
     <string name="user_state_desc">حالة أتصال المستخدم</string>

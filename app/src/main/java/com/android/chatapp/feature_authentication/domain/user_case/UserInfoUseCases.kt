@@ -1,6 +1,7 @@
 package com.android.chatapp.feature_authentication.domain.user_case
 
 import com.android.chatapp.core.domain.user_case.CheckConnection
+import com.android.chatapp.feature_notification.domain.use_case.EnqueueNotificationWorker
 import javax.inject.Inject
 
 data class UserInfoUseCases @Inject constructor(
@@ -17,4 +18,5 @@ data class UserInfoUseCases @Inject constructor(
     val getMonths: GetMonths,
     val getYears: GetYears,
     val adjustDaysState: AdjustDaysState,
+    val enqueueNotificationWorker: EnqueueNotificationWorker
 )

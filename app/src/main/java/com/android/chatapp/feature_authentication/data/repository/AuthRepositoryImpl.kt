@@ -183,8 +183,10 @@ class AuthRepositoryImpl constructor(
 
     override fun loggedIn(): Flow<Boolean> = flow {
         val uid = provider.uid
-        if (uid == -1L)
+        if (uid == -1L) {
             emit(false)
+            return@flow
+        }
         val userAndProfile = dao.getLoggedInUserAndProfileSync()
         emit(userAndProfile?.profile != null && userAndProfile.user.id == uid)
     }

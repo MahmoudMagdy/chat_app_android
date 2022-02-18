@@ -19,7 +19,7 @@ import com.android.chatapp.feature_authentication.domain.model.User
 import com.android.chatapp.feature_authentication.presentation.authActivity
 import com.android.chatapp.feature_chat.presentation.components.AppBarContent
 import com.android.chatapp.feature_chat.presentation.components.SearchContent
-import com.android.chatapp.feature_chat.presentation.navigateToChat
+import com.android.chatapp.feature_chat.presentation.routeToChat
 import com.android.chatapp.feature_chat.presentation.search_profiles.components.UserItem
 import com.android.chatapp.feature_chat.presentation.search_profiles.components.UserItemEvent
 import com.android.chatapp.feature_chat.presentation.util.PaginationUiState
@@ -48,7 +48,7 @@ fun SearchProfilesScreen(
             when (event) {
                 SearchProfilesUiEvent.Logout -> launch { authActivity }
                 is SearchProfilesUiEvent.NavigateToChat -> {
-                    navigate(navigateToChat(oid = event.user.id))
+                    navigate(routeToChat(oid = event.user.id))
                 }
                 is SearchProfilesUiEvent.NavigateToUserProfile -> {
                     //navigate()

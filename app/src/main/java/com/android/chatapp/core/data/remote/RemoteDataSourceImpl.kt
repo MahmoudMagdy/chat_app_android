@@ -9,6 +9,8 @@ import com.android.chatapp.feature_authentication.data.remote.AuthServiceImpl
 import com.android.chatapp.feature_authentication.data.remote.dto.RefreshTokensRequest
 import com.android.chatapp.feature_authentication.data.remote.dto.RefreshTokensResponse
 import com.android.chatapp.feature_chat.data.remote.*
+import com.android.chatapp.feature_notification.data.remote.NotificationsSocketService
+import com.android.chatapp.feature_notification.data.remote.NotificationsSocketServiceImpl
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.features.auth.*
@@ -60,6 +62,8 @@ class RemoteDataSourceImpl private constructor(
         get() = ChatsSocketServiceImpl(authenticatedClient, jsonSerializer)
     override val chatSocketService: ChatSocketService
         get() = ChatSocketServiceImpl(authenticatedClient, jsonSerializer)
+    override val notificationsSocketService: NotificationsSocketService
+        get() = NotificationsSocketServiceImpl(authenticatedClient, jsonSerializer)
 
     init {
         GlobalScope.launch(Dispatchers.IO) {

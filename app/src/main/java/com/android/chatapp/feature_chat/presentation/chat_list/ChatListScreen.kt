@@ -22,7 +22,7 @@ import com.android.chatapp.feature_chat.presentation.chat_list.components.ChatIt
 import com.android.chatapp.feature_chat.presentation.chat_list.components.ChatItemEvent
 import com.android.chatapp.feature_chat.presentation.components.AppBarContent
 import com.android.chatapp.feature_chat.presentation.components.SearchContent
-import com.android.chatapp.feature_chat.presentation.navigateToChat
+import com.android.chatapp.feature_chat.presentation.routeToChat
 import com.android.chatapp.feature_chat.presentation.util.Screen
 import com.android.chatapp.feature_chat.presentation.util.UiState
 import com.android.chatapp.feature_gallery.presentation.components.EmptyContent
@@ -45,7 +45,7 @@ fun ChatListScreen(
             when (event) {
                 ChatListUiEvent.Logout -> launch { authActivity }
                 is ChatListUiEvent.NavigateToChat -> {
-                    navigate(navigateToChat(cid = event.chat.id))
+                    navigate(routeToChat(cid = event.chat.id))
                 }
                 is ChatListUiEvent.NavigateToUserProfile -> {
                     //navigate()

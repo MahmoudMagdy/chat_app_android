@@ -12,8 +12,6 @@ import com.android.chatapp.R
 import com.android.chatapp.core.data.util.ApiException
 import com.android.chatapp.core.data.util.NetworkResponseException
 import com.android.chatapp.core.data.util.Resource
-import com.android.chatapp.feature_dialog.presentation.message.MessageDialogManager
-import com.android.chatapp.feature_dialog.presentation.progress.ProgressDialogManager
 import com.android.chatapp.feature_authentication.data.remote.dto.LoginRequest
 import com.android.chatapp.feature_authentication.data.remote.dto.RegisterRequest
 import com.android.chatapp.feature_authentication.data.remote.dto.UserResponse
@@ -22,13 +20,13 @@ import com.android.chatapp.feature_authentication.domain.user_case.LoginUseCases
 import com.android.chatapp.feature_authentication.domain.util.LoginFieldError
 import com.android.chatapp.feature_authentication.presentation.components.EditableUserInputState
 import com.android.chatapp.feature_authentication.presentation.util.Screen
+import com.android.chatapp.feature_dialog.presentation.message.MessageDialogManager
+import com.android.chatapp.feature_dialog.presentation.progress.ProgressDialogManager
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.receiveAsFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -175,8 +173,10 @@ class LoginViewModel @Inject constructor(private val cases: LoginUseCases) : Vie
         }
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     private fun onLoginSuccess(data: UserResponse) {
         if (data.profile != null) {
+            GlobalScope.launch { cases.enqueueNotificationWorker() }
             sendUiEvent(UiEvent.LoginCompleted)
         } else {
             sendUiEvent(UiEvent.Navigate(Screen.USER_INFO))

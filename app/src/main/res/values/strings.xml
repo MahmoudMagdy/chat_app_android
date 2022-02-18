@@ -167,6 +167,27 @@
     <string name="msg_list_empty_content">Send your first message…!</string>
     <string name="msg_list_editor_hint">Type a message…</string>
     <string name="msg_list_send_record_btn_desc">Send text or voice message</string>
+    <!--NotificationFeature-->
+    <string name="default_channel_name">Default Channel</string>
+    <string name="default_channel_description">Responsible For showing user notifications.</string>
+    <string name="foreground_channel_name">Foreground Channel</string>
+    <string name="foreground_channel_description">App is fetching new notifications.</string>
+    <string name="foreground_notification_title">Listening to Notifications</string>
+    <string name="foreground_notification_content">Don\'t miss any notification.</string>
+    <string name="foreground_notification_cancel_title">Cancel</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <string name="chat_list_move_to_first_desc">Go to the beginning of your chats list</string>
     <string name="user_state_desc">User Connection State</string>

@@ -45,7 +45,8 @@ fun SearchContent(
                     imageVector = Icons.Filled.Person,
                     contentDescription = stringResource(id = R.string.chat_list_users_search_hint)
                 )
-            }
+            },
+            maxLines = 1
         )
         Spacer(modifier = Modifier.width(MaterialTheme.spacing.small))
         IconButton(onClick = onSearchClicked) {

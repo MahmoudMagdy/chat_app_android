@@ -1,6 +1,7 @@
 package com.android.chatapp.core.di
 
 import android.content.Context
+import androidx.work.WorkManager
 import com.android.chatapp.core.data.local.ChatAppDatabase
 import com.android.chatapp.core.data.remote.RemoteDataSource
 import com.android.chatapp.core.data.remote.RemoteDataSourceImpl
@@ -20,9 +21,14 @@ object CoreModule {
 
     @Provides
     @Singleton
-    fun provideLocalDatabase(@ApplicationContext context: Context): ChatAppDatabase {
-        return ChatAppDatabase(context)
-    }
+    fun provideWorkerManager(@ApplicationContext context: Context): WorkManager =
+        WorkManager.getInstance(context)
+
+    @Provides
+    @Singleton
+    fun provideLocalDatabase(@ApplicationContext context: Context): ChatAppDatabase =
+        ChatAppDatabase(context)
+
 
     @Provides
     @Singleton

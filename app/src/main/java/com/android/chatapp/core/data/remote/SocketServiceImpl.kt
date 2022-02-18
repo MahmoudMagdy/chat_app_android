@@ -14,7 +14,7 @@ import kotlin.reflect.KType
 
 abstract class SocketServiceImpl<in REQUEST, out RESPONSE>(
     private val client: HttpClient,
-    private val serializer: Json,
+    protected val serializer: Json,
     private val requestType: KType,
     private val responseType: KType
 ) : SocketService<RESPONSE> {

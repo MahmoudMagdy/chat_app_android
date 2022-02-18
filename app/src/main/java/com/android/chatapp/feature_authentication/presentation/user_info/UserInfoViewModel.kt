@@ -38,12 +38,10 @@ import com.android.chatapp.feature_dialog.presentation.util.to
 import com.android.chatapp.feature_gallery.domain.model.LocalMedia
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.ktor.client.statement.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.receiveAsFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -383,7 +381,9 @@ class UserInfoViewModel @Inject constructor(val cases: UserInfoUseCases) : ViewM
         }
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     private fun onCreateSuccess() {
+        GlobalScope.launch { cases.enqueueNotificationWorker() }
         sendUiEvent(UiEvent.LoginCompleted)
     }
 

@@ -14,6 +14,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import androidx.navigation.navDeepLink
 import com.android.chatapp.feature_chat.presentation.chat_list.ChatListScreen
 import com.android.chatapp.feature_chat.presentation.message_list.CHAT_ID
 import com.android.chatapp.feature_chat.presentation.message_list.MessageListScreen
@@ -32,19 +33,26 @@ val Context.chatActivity
 
 @AndroidEntryPoint
 class ChatActivity : ComponentActivity() {
+    lateinit var navController: NavHostController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ChatApp { launcher -> launcher() }
+            if (!::navController.isInitialized)
+                navController = rememberNavController()
+            ChatApp(navController) { launcher -> launcher() }
         }
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        navController.handleDeepLink(intent)
     }
 }
 
 
 @Composable
-fun ChatApp(launch: (Context.() -> Unit) -> Unit) {
+fun ChatApp(navController: NavHostController, launch: (Context.() -> Unit) -> Unit) {
     ChatAppTheme {
-        val navController = rememberNavController()
         ChatNavHost(
             navController = navController,
             launch = launch
@@ -86,7 +94,7 @@ fun ChatNavHost(
             )
         }
         composable(
-            route = "${Screen.PROFILE_SEARCH.route}?$CHAT_ID={$CHAT_ID}&$USER_ID={$USER_ID}",
+            route = "${Screen.MESSAGE_LIST.route}?$CHAT_ID={$CHAT_ID}&$USER_ID={$USER_ID}",
             arguments = listOf(
                 navArgument(name = CHAT_ID) {
                     type = NavType.LongType
@@ -95,6 +103,12 @@ fun ChatNavHost(
                 navArgument(name = USER_ID) {
                     type = NavType.LongType
                     defaultValue = NO_ID
+                }
+            ),
+            deepLinks = listOf(
+                navDeepLink {
+                    uriPattern =
+                        "chat-app://${Screen.MESSAGE_LIST.route}?$CHAT_ID={$CHAT_ID}&$USER_ID={$USER_ID}"
                 }
             )
         ) {
@@ -108,8 +122,11 @@ fun ChatNavHost(
 }
 
 
-fun navigateToChat(cid: Long? = null, oid: Long? = null) =
-    "${Screen.PROFILE_SEARCH.route}?${if (cid != null) "$CHAT_ID=$cid" else "$USER_ID=$oid"}"
+fun routeToChat(cid: Long? = null, oid: Long? = null) =
+    "${Screen.MESSAGE_LIST.route}?${if (cid != null) "$CHAT_ID=$cid" else "$USER_ID=$oid"}"
+
+fun linkToChat(cid: Long? = null, oid: Long? = null) =
+    "chat-app://${routeToChat(cid, oid)}"
 
 
 const val NO_ID = -1L
