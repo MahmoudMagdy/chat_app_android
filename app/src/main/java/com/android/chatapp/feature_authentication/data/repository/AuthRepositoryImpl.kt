@@ -9,7 +9,7 @@ import com.android.chatapp.feature_authentication.data.local.UserDao
 import com.android.chatapp.feature_authentication.data.local.entity.ProfileAndMedia
 import com.android.chatapp.feature_authentication.data.local.entity.model
 import com.android.chatapp.feature_authentication.data.provider.reset_password.ResetPasswordProvider
-import com.android.chatapp.feature_authentication.data.provider.user.TokensProvider
+import com.android.chatapp.feature_authentication.data.provider.token.TokenProvider
 import com.android.chatapp.feature_authentication.data.remote.AuthService
 import com.android.chatapp.feature_authentication.data.remote.dto.*
 import com.android.chatapp.feature_authentication.data.util.AuthApiExceptions
@@ -23,12 +23,9 @@ class AuthRepositoryImpl constructor(
     private val service: AuthService,
     private val dao: UserDao,
     private val profileDao: ProfileDao,
-    private val provider: TokensProvider,
+    private val provider: TokenProvider,
     private val resetProvider: ResetPasswordProvider
 ) : AuthRepository {
-    companion object {
-        private const val EMPTY_UID = -1L
-    }
 
     private val _currentProfile: MutableStateFlow<Resource<ProfileAndMedia, ApiException>?> =
         MutableStateFlow(null)
@@ -38,8 +35,8 @@ class AuthRepositoryImpl constructor(
 
     init {
         GlobalScope.launch(Dispatchers.IO) {
-            val uid = provider.uid
-            if (uid != EMPTY_UID) listenToCurrentProfile(uid)
+            val uid = provider.uid()
+            if (uid != null) listenToCurrentProfile(uid)
         }
     }
 
@@ -137,7 +134,13 @@ class AuthRepositoryImpl constructor(
             when (val result = remoteResponse.await()) {
                 is Resource.Success -> {
                     result.data.apply {
-                        async { dao.insertUserAndProfile(loggedEntity, profileEntity, mediaEntity) }
+                        async {
+                            dao.insertUserAndProfile(
+                                loggedEntity,
+                                profile?.entity,
+                                profile?.latestImage?.entity
+                            )
+                        }
                         emit(Resource.Success(model))
                     }
                 }
@@ -151,8 +154,7 @@ class AuthRepositoryImpl constructor(
 
     @Throws(UnauthorizedAccessException::class)
     override suspend fun getCurrentUserProfile(): StateFlow<Resource<ProfileAndMedia, ApiException>?> {
-        val uid = provider.uid
-        if (uid == EMPTY_UID) throw UnauthorizedAccessException.NoUserID
+        val uid = provider.uid() ?: throw UnauthorizedAccessException.NoUserID
         if (listeningScope == null) listenToCurrentProfile(uid)
         //TODO: Make a time threshold after that fetch for profile if it was not exceeded not make a fetch
         GlobalScope.launch(Dispatchers.IO) {
@@ -182,8 +184,8 @@ class AuthRepositoryImpl constructor(
     }
 
     override fun loggedIn(): Flow<Boolean> = flow {
-        val uid = provider.uid
-        if (uid == -1L) {
+        val uid = provider.uid()
+        if (uid == null) {
             emit(false)
             return@flow
         }
@@ -202,7 +204,11 @@ class AuthRepositoryImpl constructor(
     private fun persistFetchedUserAndProfile(loginResponse: UserResponse) {
         GlobalScope.launch(Dispatchers.IO) {
             loginResponse.apply {
-                dao.insertUserAndProfile(loggedEntity, profileEntity, mediaEntity)
+                dao.insertUserAndProfile(
+                    loggedEntity,
+                    profile?.entity,
+                    profile?.latestImage?.entity
+                )
             }
         }
     }
@@ -210,7 +216,7 @@ class AuthRepositoryImpl constructor(
     private fun persistFetchedProfileMedia(profileResponse: ProfileResponse) {
         GlobalScope.launch(Dispatchers.IO) {
             profileResponse.apply {
-                profileDao.insertProfileAndMedia(entity, mediaEntity)
+                profileDao.insertProfileAndMedia(entity, latestImage?.entity)
             }
         }
     }
@@ -219,8 +225,8 @@ class AuthRepositoryImpl constructor(
         resetProvider.setEmailDate(email)
     }
 
-    private fun saveAccessTokens(loginResponse: UserResponse) {
-        provider.setTokens(loginResponse)
+    private suspend fun saveAccessTokens(loginResponse: UserResponse) {
+        provider.set(loginResponse.preferences)
     }
 
     override fun isEmailDateExceededTimeLimit(email: String, mills: Long): Boolean =

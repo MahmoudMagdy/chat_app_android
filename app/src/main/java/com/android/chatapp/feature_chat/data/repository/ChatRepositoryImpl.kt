@@ -4,11 +4,10 @@ import com.android.chatapp.core.data.util.*
 import com.android.chatapp.feature_authentication.data.local.entity.ProfileEntity
 import com.android.chatapp.feature_authentication.data.local.entity.ProfileMediaEntity
 import com.android.chatapp.feature_authentication.data.local.entity.UserEntity
-import com.android.chatapp.feature_authentication.data.provider.user.TokensProvider
+import com.android.chatapp.feature_authentication.data.provider.token.TokenProvider
 import com.android.chatapp.feature_authentication.data.remote.dto.UserResponse
 import com.android.chatapp.feature_authentication.data.remote.dto.entity
-import com.android.chatapp.feature_authentication.data.remote.dto.mediaEntity
-import com.android.chatapp.feature_authentication.data.remote.dto.profileEntity
+import com.android.chatapp.feature_authentication.data.util.UnauthorizedAccessException
 import com.android.chatapp.feature_chat.data.local.ChatDao
 import com.android.chatapp.feature_chat.data.local.MessageDao
 import com.android.chatapp.feature_chat.data.local.entity.*
@@ -33,11 +32,14 @@ class ChatRepositoryImpl(
     private val chatSocketService: ChatSocketService,
     private val dao: ChatDao,
     private val messageDao: MessageDao,
-    private val tokensProvider: TokensProvider,
+    private val tokenProvider: TokenProvider,
 ) : ChatRepository {
+
+    //TODO: handle unauthorized access every where in chat
+    @Throws(UnauthorizedAccessException::class)
     override fun getChats(): Flow<Resource<List<Chat>, ApiException>> = flow {
         emit(Resource.Loading())
-        val uid = tokensProvider.uid
+        val uid = tokenProvider.uid() ?: throw UnauthorizedAccessException.NoUserID
         coroutineScope {
             val chats =
                 async { dao.getChatsWithAllData(uid).takeIf { it.isNotEmpty() }?.models(null) }
@@ -78,8 +80,9 @@ class ChatRepositoryImpl(
         onChatResponse(chatResponse)
     }
 
+    @Throws(UnauthorizedAccessException::class)
     private suspend fun FlowCollector<Resource<Chat, ApiException>>.onChatResponse(chatResponse: Resource<ChatResponse, ApiException>) {
-        val uid = tokensProvider.uid
+        val uid = tokenProvider.uid() ?: throw UnauthorizedAccessException.NoUserID
         when (chatResponse) {
             is Resource.Success -> {
                 val chat = chatResponse.data
@@ -141,8 +144,9 @@ class ChatRepositoryImpl(
         chatsSocketService.disconnect { reason -> block(WSCloseReason by reason) }
 
 
-    override fun receiveChats(): Flow<Chat> {
-        val uid = tokensProvider.uid
+    @Throws(UnauthorizedAccessException::class)
+    override suspend fun receiveChats(): Flow<Chat> {
+        val uid = tokenProvider.uid() ?: throw UnauthorizedAccessException.NoUserID
         return chatsSocketService.receive().map { chat ->
             val (chatEntity, messageEntity, userEntities, userChatCrossRefEntities,
                 profileEntities, mediaEntities) = ChatEntityHolder(uid, chat)
@@ -178,9 +182,9 @@ class ChatRepositoryImpl(
                     userEntities.add(user.entity)
                     userChatCrossRefEntities.add(UserChatCrossRef(user.id, chat.id))
                     if (user.profile != null) {
-                        profileEntities.add(user.profileEntity!!)
+                        profileEntities.add(user.profile.entity)
                         if (user.profile.latestImage != null)
-                            mediaEntities.add(user.mediaEntity!!)
+                            mediaEntities.add(user.profile.latestImage.entity)
                     }
                 }
                 userChatCrossRefEntities.add(UserChatCrossRef(userId, chat.id))

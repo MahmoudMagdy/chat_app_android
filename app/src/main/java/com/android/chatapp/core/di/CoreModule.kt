@@ -7,7 +7,7 @@ import com.android.chatapp.core.data.remote.RemoteDataSource
 import com.android.chatapp.core.data.remote.RemoteDataSourceImpl
 import com.android.chatapp.core.data.repository.StorageRepositoryImpl
 import com.android.chatapp.core.domain.repository.StorageRepository
-import com.android.chatapp.feature_authentication.data.provider.user.TokensProvider
+import com.android.chatapp.feature_authentication.data.provider.token.TokenProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,8 +32,8 @@ object CoreModule {
 
     @Provides
     @Singleton
-    fun provideRemoteDataSource(tokensProvider: TokensProvider): RemoteDataSource {
-        return RemoteDataSourceImpl(tokensProvider)
+    fun provideRemoteDataSource(tokenProvider: TokenProvider): RemoteDataSource {
+        return RemoteDataSourceImpl(tokenProvider)
     }
 
     @Provides

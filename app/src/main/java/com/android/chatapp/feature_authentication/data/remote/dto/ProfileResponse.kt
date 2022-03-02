@@ -40,7 +40,5 @@ val ProfileResponse.entity
             deviceLanguage, quote, description, createdAt, updatedAt, userId
         )
 
-val ProfileResponse.mediaEntity get() = latestImage?.entity
-
 val ProfileResponse.model
     get() = Profile(id, firstName, lastName, quote, description, gender, latestImage?.model)

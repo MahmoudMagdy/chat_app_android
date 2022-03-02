@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.protobuf'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
     id 'kotlinx-serialization'
@@ -122,4 +123,26 @@ dependencies {
     // optional - Test helpers
     androidTestImplementation "androidx.work:work-testing:$work_version"
 
+    //DataStore + Protocol Buffers
+    implementation  "androidx.datastore:datastore:1.0.0"
+    implementation  "com.google.protobuf:protobuf-javalite:4.0.0-rc-2"
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:4.0.0-rc-2"
+    }
+
+    // Generates the java Protobuf-lite code for the Protobufs in this project. See
+    // https://github.com/google/protobuf-gradle-plugin#customizing-protobuf-compilation
+    // for more information.
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    option 'lite'
+                }
+            }
+        }
+    }
 }

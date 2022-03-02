@@ -3,7 +3,7 @@ package com.android.chatapp.core.data.remote
 import com.android.chatapp.core.data.util.ApiException
 import com.android.chatapp.core.data.util.Resource
 import com.android.chatapp.core.data.util.safeApiCall
-import com.android.chatapp.feature_authentication.data.provider.user.TokensProvider
+import com.android.chatapp.feature_authentication.data.provider.token.TokenProvider
 import com.android.chatapp.feature_authentication.data.remote.AuthService
 import com.android.chatapp.feature_authentication.data.remote.AuthServiceImpl
 import com.android.chatapp.feature_authentication.data.remote.dto.RefreshTokensRequest
@@ -28,7 +28,7 @@ import kotlinx.serialization.json.Json
 class RemoteDataSourceImpl private constructor(
     private val client: HttpClient,
     private val jsonSerializer: Json,
-    tokensProvider: TokensProvider
+    tokenProvider: TokenProvider
 ) : RemoteDataSource {
     private var bearerProvider: BearerAuthProvider? = null
     private val authenticatedClient = client.config {
@@ -36,16 +36,16 @@ class RemoteDataSourceImpl private constructor(
             bearer {
                 var tokens: BearerTokens? = null
                 loadTokens {
-                    tokens = tokensProvider.bearerTokens
+                    tokens = tokenProvider.bearerTokens()
                     tokens
                 }
 
                 refreshTokens {
                     val oldTokens = tokens
-                    tokens = if (oldTokens == null) tokensProvider.bearerTokens
+                    tokens = if (oldTokens == null) tokenProvider.bearerTokens()
                     else getRefreshTokens(oldTokens.refreshToken).also {
                         if (it != null) GlobalScope.launch {
-                            tokensProvider.updateTokens(it)
+                            tokenProvider.update(it)
                         }
                     }
                     tokens
@@ -93,7 +93,7 @@ class RemoteDataSourceImpl private constructor(
         private val LOCK = Any()
 
         operator fun invoke(
-            tokensProvider: TokensProvider,
+            tokenProvider: TokenProvider,
             jsonSerializer: Json = Json {
                 isLenient = true
                 ignoreUnknownKeys = true
@@ -110,7 +110,7 @@ class RemoteDataSourceImpl private constructor(
                     }
                 },
                 jsonSerializer = jsonSerializer,
-                tokensProvider = tokensProvider
+                tokenProvider = tokenProvider
             ).also { instance = it }
         }
 

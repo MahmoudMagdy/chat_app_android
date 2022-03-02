@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_package = "com.android.chatapp";
+option java_multiple_files = true;
+
+message BucketPreferences {
+  uint64 images_download_bucket = 1;
+  uint64 videos_download_bucket = 2;
+}

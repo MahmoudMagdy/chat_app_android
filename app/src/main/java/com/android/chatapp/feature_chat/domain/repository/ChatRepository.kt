@@ -25,7 +25,7 @@ interface ChatRepository {
 
     suspend fun connectToChats(): Resource<Unit, Nothing>
     suspend fun disconnectFromChats(block: (WSCloseReason) -> Unit)
-    fun receiveChats(): Flow<Chat>
+    suspend fun receiveChats(): Flow<Chat>
     suspend fun closeChats()
 
 

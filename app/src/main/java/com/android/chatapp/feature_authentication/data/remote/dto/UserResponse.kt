@@ -1,5 +1,6 @@
 package com.android.chatapp.feature_authentication.data.remote.dto
 
+import com.android.chatapp.TokenPreferences
 import com.android.chatapp.feature_authentication.data.local.entity.UserEntity
 import com.android.chatapp.feature_authentication.domain.model.User
 import kotlinx.datetime.Instant
@@ -40,10 +41,6 @@ val UserResponse.loggedEntity
         isStaff, createdAt, updatedAt, lastLogin, true
     )
 
-val UserResponse.profileEntity get() = profile?.entity
-val UserResponse.mediaEntity get() = profile?.mediaEntity
-
-
 val UserResponse.model
     get() = User(
         id = id,
@@ -51,3 +48,10 @@ val UserResponse.model
         profile = profile!!.model,
         session = session?.model
     )
+
+val UserResponse.preferences: TokenPreferences
+    get() = TokenPreferences.newBuilder().apply {
+        id = this@preferences.id
+        accessToken = this@preferences.tokens!!.access
+        refreshToken = this@preferences.tokens.refresh
+    }.build()
